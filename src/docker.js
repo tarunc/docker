@@ -1277,8 +1277,8 @@ Docker.prototype.renderCodeHtml = function(sections, filename, cb){
     sidebar: this.sidebarState,
     colourScheme: this.colourScheme,
     filename: filename.replace(this.inDir,'').replace(/^[\/\\]/,''),
-    js: this.extraJS.map(path.basename),
-    css: this.extraCSS.map(path.basename)
+    js: this.extraJS.map(function(file){ return path.basename(file); }),
+    css: this.extraCSS.map(function(file){ return path.basename(file); })
   });
 
   var self = this;
